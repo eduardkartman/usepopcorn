@@ -419,3 +419,67 @@ function WatchedMovie({ movie, onDeleteWatched }) {
     </li>
   );
 }
+
+// `https://api.frankfurter.app/latest?amount=100&from=EUR&to=USD`
+
+// // ############################################# EXERCISE #############################################
+// // ____________________________________________________________________________________________________
+// // ____________________________________________________________________________________________________
+// import { useState, useEffect } from "react";
+
+// export default function App() {
+//   const controller = new AbortController();
+//   const [amount, setAmount] = useState(100);
+//   const [convertedAmount, setConvertedAmount] = useState("");
+//   const [fromCurr, setFromCurr] = useState("EUR");
+//   const [toCurr, setToCurr] = useState("RON");
+
+//   useEffect(
+//     function () {
+//       async function getConvertedAmount() {
+//         const res = await fetch(
+//           `https://api.frankfurter.app/latest?amount=${amount}&from=${fromCurr}&to=${toCurr}`,
+//           { signal: controller.signal },
+//         );
+//         const data = await res.json();
+//         setConvertedAmount(data.rates[toCurr]);
+//       }
+//       getConvertedAmount();
+//     },
+//     [amount, fromCurr, toCurr],
+//   );
+
+//   return (
+//     <div>
+//       <Amount amount={amount} setAmount={setAmount} />
+//       <CurrencySelect currency={fromCurr} setCurrency={setFromCurr} />
+//       <CurrencySelect currency={toCurr} setCurrency={setToCurr} />
+//       <h2>
+//         <p>OUTPUT: {convertedAmount}</p>
+//       </h2>
+//     </div>
+//   );
+// }
+
+// function Amount({ amount, setAmount }) {
+//   return (
+//     <input
+//       type="text"
+//       placeholder="Amount to be converted..."
+//       value={amount}
+//       onChange={(e) => setAmount(e.target.value)}
+//     />
+//   );
+// }
+
+// function CurrencySelect({ currency, setCurrency }) {
+//   return (
+//     <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+//       <option value="USD">USD</option>
+//       <option value="EUR">EUR</option>
+//       <option value="CAD">CAD</option>
+//       <option value="INR">INR</option>
+//       <option value="RON">RON</option>
+//     </select>
+//   );
+// }
